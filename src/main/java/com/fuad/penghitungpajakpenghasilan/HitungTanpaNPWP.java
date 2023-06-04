@@ -71,8 +71,14 @@ public class HitungTanpaNPWP extends javax.swing.JFrame {
             }
         });
         penghasilan.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                penghasilanKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 penghasilanKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                penghasilanKeyTyped(evt);
             }
         });
 
@@ -174,7 +180,7 @@ public class HitungTanpaNPWP extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(419, 419, 419)
                     .addComponent(hasilHitung1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(0, Short.MAX_VALUE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -305,6 +311,9 @@ public class HitungTanpaNPWP extends javax.swing.JFrame {
         DecimalFormat DFM = new DecimalFormat("#,###,###");        
         sebulan.setText(DFM.format(D_angka_Norma));
         
+        
+        
+        
     }//GEN-LAST:event_hitungActionPerformed
 
     private void penghasilanKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_penghasilanKeyReleased
@@ -330,6 +339,18 @@ public class HitungTanpaNPWP extends javax.swing.JFrame {
     private void sebulanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sebulanActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_sebulanActionPerformed
+
+    private void penghasilanKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_penghasilanKeyTyped
+        char enter = evt.getKeyChar();
+        if (!(Character.isDigit(enter) || enter == '.')) {
+            evt.consume();
+        }
+        
+    }//GEN-LAST:event_penghasilanKeyTyped
+
+    private void penghasilanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_penghasilanKeyPressed
+        
+    }//GEN-LAST:event_penghasilanKeyPressed
 
     /**
      * @param args the command line arguments

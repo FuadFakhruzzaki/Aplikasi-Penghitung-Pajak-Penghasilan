@@ -75,6 +75,9 @@ public class HitungDenganNPWP extends javax.swing.JFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 penghasilanKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                penghasilanKeyTyped(evt);
+            }
         });
 
         hitung.setBackground(new java.awt.Color(55, 66, 89));
@@ -296,9 +299,7 @@ public class HitungDenganNPWP extends javax.swing.JFrame {
             hasilHitung.setText("Tidak Wajib Bayar Pajak");
             sebulan.setText("Tidak Wajib Bayar Pajak");
         }
-        if (penghasilan1.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Textfield harus diisi.", "Peringatan", JOptionPane.WARNING_MESSAGE);
-        }
+        
 
         String S_angka_normal = hasilHitung1.getText().replaceAll("\\,", "");
         double D_angka_Normal = Double.parseDouble(S_angka_normal);
@@ -330,6 +331,14 @@ public class HitungDenganNPWP extends javax.swing.JFrame {
     private void sebulanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sebulanActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_sebulanActionPerformed
+
+    private void penghasilanKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_penghasilanKeyTyped
+        char enter = evt.getKeyChar();
+        if (!(Character.isDigit(enter) || enter == '.')) {
+            evt.consume();
+        }
+        
+    }//GEN-LAST:event_penghasilanKeyTyped
 
     /**
      * @param args the command line arguments
